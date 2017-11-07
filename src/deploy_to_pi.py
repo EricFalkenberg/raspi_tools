@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import nmap
 import subprocess
 import click
@@ -18,7 +19,7 @@ def discover_rpi(subnet):
     click.echo("Pi's found: {0}".format(len(rpi_list))) 
     return rpi_list
     
-def deploy_pi(rpi_list):
+def deploy_rpi(rpi_list):
     for rpi in rpi_list:
         ssh = subprocess.call(['ssh', 'pi@{0}'.format(rpi), 'uname'])
 
@@ -30,7 +31,7 @@ def cli(subnet):
     to them. Must be run as root user.
     """
     rpi_list = discover_rpi(subnet)
-    deploy_pi(rpi_list)
+    deploy_rpi(rpi_list)
 
 if __name__ == '__main__':
     cli()

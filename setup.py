@@ -11,7 +11,7 @@ setup(name="tools",
     ],
     entry_points='''
         [console_scripts]
-        flash_sd=flash_sd:cli
-        deploy_to_pi=deploy_to_pi:cli
+        flash_sd=src.flash_sd:cli
+        deploy_to_pi=src.deploy_to_pi:cli
     ''',
 )  
