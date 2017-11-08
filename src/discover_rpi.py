@@ -19,10 +19,6 @@ def discover_rpi(subnet):
     click.echo("Pi's found: {0}".format(len(rpi_list))) 
     return rpi_list
     
-def deploy_rpi(rpi_list):
-    for rpi in rpi_list:
-        ssh = subprocess.call(['ssh', 'pi@{0}'.format(rpi), 'uname'])
-
 @click.command()
 @click.argument('subnet', default='192.168.0.0/24')
 def cli(subnet):
@@ -30,8 +26,12 @@ def cli(subnet):
     Discover Raspberry Pi hosts on local network and deploy
     to them. Must be run as root user.
     """
-    rpi_list = discover_rpi(subnet)
-    deploy_rpi(rpi_list)
+    try:
+        rpi_list = discover_rpi(subnet)
+        for rpi in rpi_list:
+            click.echo(rpi)
+    except nmap.PortScannerError as e:
+        click.echo(e.value)
 
 if __name__ == '__main__':
     cli()

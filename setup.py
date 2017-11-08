@@ -15,16 +15,16 @@ setup(name="flash_sd",
     }
 )  
 
-setup(name="deploy_to_pi",
+setup(name="discover_rpi",
     version="0.0.1",
-    modules=['deploy_to_pi'],
+    modules=['discover_rpi'],
     install_requires=[
         'click',
         'python-nmap'
     ],
     entry_points = {
         'console_scripts' : [
-            'deploy_to_pi = src.deploy_to_pi:cli'
+            'discover_rpi = src.discover_rpi:cli'
         ]
     }
 )
