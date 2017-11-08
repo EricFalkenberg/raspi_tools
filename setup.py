@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(name="flash_sd",
     version="0.0.1",
-    modules=["flash_sd"],
+    packages=find_packages(),
+    include_package_data=True,
     install_requires=[
         'click'
     ],
@@ -17,7 +18,8 @@ setup(name="flash_sd",
 
 setup(name="discover_rpi",
     version="0.0.1",
-    modules=['discover_rpi'],
+    packages=find_packages(),
+    include_package_data=True,
     install_requires=[
         'click',
         'python-nmap'
