@@ -2,16 +2,29 @@
 
 from setuptools import setup
 
-setup(name="tools",
+setup(name="flash_sd",
     version="0.0.1",
-    py_modules=['tools'],
+    modules=["flash_sd"],
+    install_requires=[
+        'click'
+    ],
+    entry_points = {
+        'console_scripts' : [
+            'flash_sd = src.flash_sd:cli'
+        ]
+    }
+)  
+
+setup(name="deploy_to_pi",
+    version="0.0.1",
+    modules=['deploy_to_pi'],
     install_requires=[
         'click',
         'python-nmap'
     ],
-    entry_points='''
-        [console_scripts]
-        flash_sd=src.flash_sd:cli
-        deploy_to_pi=src.deploy_to_pi:cli
-    ''',
-)  
+    entry_points = {
+        'console_scripts' : [
+            'deploy_to_pi = src.deploy_to_pi:cli'
+        ]
+    }
+)
