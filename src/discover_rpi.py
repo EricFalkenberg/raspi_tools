@@ -6,7 +6,6 @@ import click
 RPI_HOST = "Raspberry Pi Foundation"
 
 def discover_rpi(subnet):
-    click.echo("Searching for Raspberry Pi hosts on LAN")
     nm = nmap.PortScanner()
     ret = nm.scan(hosts=subnet, arguments='-sS -p 22')
     rpi_list = []
@@ -16,7 +15,6 @@ def discover_rpi(subnet):
             host_type = scan['vendor'][addrs['mac']]
             if host_type == RPI_HOST:
                 rpi_list.append(ip)
-    click.echo("Pi's found: {0}".format(len(rpi_list))) 
     return rpi_list
     
 @click.command()
@@ -28,8 +26,7 @@ def cli(subnet):
     """
     try:
         rpi_list = discover_rpi(subnet)
-        for rpi in rpi_list:
-            click.echo(rpi)
+        click.echo(' '.join(rpi_list))
     except nmap.PortScannerError as e:
         click.echo(e.value)
 
