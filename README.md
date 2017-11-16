@@ -1,5 +1,4 @@
 # Raspberry Pi Tools
-Aides in setup and deployment to Raspberry Pi hosts
 
 ## Installation
 ```
