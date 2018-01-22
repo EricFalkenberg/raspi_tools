@@ -1,0 +1,25 @@
+{
+    "extensions": {
+        "enabled": [
+            "python_venv",
+            "blocks"
+        ]
+    },
+    "core": {
+        "group": "Application/System",
+        "license": "MIT",
+        "name": "raspi_tools",
+        "summary": "Tools for interfacing with Raspberry Pis",
+        "version": "1.0.0"
+    },
+    "python_venv": {
+        "name": "s3-rpm-venv",
+        "path": "~/"
+    },
+    "blocks": {
+        "desc": [
+            "Lorem Ipsum",
+            "Dolor sit amet."
+        ]
+    }
+}
